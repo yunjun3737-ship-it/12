@@ -1619,7 +1619,7 @@ local function createSettings(window)
 		for settingName, setting in pairs(settingCategory) do
 			if setting.Type == 'input' then
 				setting.Element = newTab:CreateInput({
-					Name = setting.Name,
+					Name = setting.Name,}
 					CurrentValue = setting.Value,
 					PlaceholderText = setting.Placeholder,
 					Ext = true,
