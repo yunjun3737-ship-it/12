@@ -208,20 +208,6 @@ local function cleanupConnections(connectionTable)
     connectionTable = {}
 end
 
-local function getVersion()
-    local url = "https://raw.githubusercontent.com/Undebolted/FTAP/main/VERSION.json"
-    local success, response = pcall(function()
-        return game:HttpGet(url)
-    end)
-
-    if success then
-        local data = HttpService:JSONDecode(response)
-        return data.version
-    else
-        warn("Failed to get version: " .. response)
-        return "Unknown"
-    end
-end
 
 local function spawnItem(itemName, position, orientation)
     task.spawn(function()
