@@ -1631,7 +1631,7 @@ local Input = FunTab:CreateInput({
     end,
  })
 
- FunTab:AddButton({
+ FunTab:AddToggle({
     Name = "Disconnect Clones",
     Callback = cleanupConnections(connections)
 })
