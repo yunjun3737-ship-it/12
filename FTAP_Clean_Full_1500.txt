@@ -1645,3 +1645,82 @@ local Input = FunTab:CreateInput({
     Name = "Disconnect Clones",
     Callback = cleanupConnections(connections)
 })
+
+local Paragraph = ExplosionTab:CreateParagraph({Title = "Explosion / Missile", Content = "Missile & Ragdoll Functions"})
+
+local Toggle = ExplosionTab:CreateToggle({
+    Name = "Auto Reload Missile",
+    CurrentValue = false,
+    Callback = function(enabled)
+        reloadMissile(enabled)
+    end
+})
+
+local Slider = ExplosionTab:CreateSlider({
+    Name = "Max Missiles",
+    Range = {1, 20},
+    Increment = 1,
+    CurrentValue = 9,
+    Callback = function(Value)
+        _G.MaxMissiles = Value
+    end
+})
+
+local Toggle = ExplosionTab:CreateToggle({
+    Name = "Ragdoll All",
+    CurrentValue = false,
+    Callback = function(enabled)
+        if enabled then
+            ragdollAllCoroutine = coroutine.create(ragdollAll)
+            coroutine.resume(ragdollAllCoroutine)
+        else
+            if ragdollAllCoroutine then
+                coroutine.close(ragdollAllCoroutine)
+                ragdollAllCoroutine = nil
+            end
+        end
+    end
+})
+
+
+local Paragraph = AuraTab:CreateParagraph({Title = "Aura Functions", Content = "Poison / Death Aura"})
+
+
+local Toggle = AuraTab:CreateToggle({
+    Name = "Poison Aura",
+    CurrentValue = false,
+    Callback = function(enabled)
+    
+        print("Poison Aura:", enabled)
+    end
+})
+
+local Toggle = AuraTab:CreateToggle({
+    Name = "Death Aura",
+    CurrentValue = false,
+    Callback = function(enabled)
+        print("Death Aura:", enabled)
+    end
+})
+
+local Slider = AuraTab:CreateSlider({
+    Name = "Aura Radius",
+    Range = {10, 100},
+    Increment = 5,
+    CurrentValue = 20,
+    Callback = function(Value)
+        auraRadius = Value
+    end
+})
+
+local Button = ObjectGrabTab:CreateButton({
+    Name = "Compile Group (Anchor)",
+    Callback = function()
+        compileGroup()
+    end
+})
+
+local Button = ObjectGrabTab:CreateButton({
+    Name = "정리 컴파일 ",
+    Callback = cleanupCompiledGroups
+})
