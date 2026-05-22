@@ -1633,9 +1633,11 @@ local Input = FunTab:CreateInput({
 
 
 
+
+
 local Paragraph = ExplosionTab:CreateParagraph({Title = "Explosion / Missile", Content = "Missile & Ragdoll Functions"})
 
-local Toggle = ExplosionTab:CreateButton({
+local Toggle = ExplosionTab:CreateToggle({
     Name = "Auto Reload Missile",
     CurrentValue = false,
     Callback = function(enabled)
@@ -1658,6 +1660,7 @@ local Toggle = ExplosionTab:CreateToggle({
     CurrentValue = false,
     Callback = function(enabled)
         if enabled then
+            if ragdollAllCoroutine then coroutine.close(ragdollAllCoroutine) end
             ragdollAllCoroutine = coroutine.create(ragdollAll)
             coroutine.resume(ragdollAllCoroutine)
         else
@@ -1669,37 +1672,7 @@ local Toggle = ExplosionTab:CreateToggle({
     end
 })
 
-
-local Paragraph = AuraTab:CreateParagraph({Title = "Aura Functions", Content = "Poison / Death Aura"})
-
-
-local Toggle = AuraTab:CreateToggle({
-    Name = "Poison Aura",
-    CurrentValue = false,
-    Callback = function(enabled)
-    
-        print("Poison Aura:", enabled)
-    end
-})
-
-local Toggle = AuraTab:CreateToggle({
-    Name = "Death Aura",
-    CurrentValue = false,
-    Callback = function(enabled)
-        print("Death Aura:", enabled)
-    end
-})
-
-local Slider = AuraTab:CreateSlider({
-    Name = "Aura Radius",
-    Range = {10, 100},
-    Increment = 5,
-    CurrentValue = 20,
-    Callback = function(Value)
-        auraRadius = Value
-    end
-})
-
+-- Object Grab Tab
 local Button = ObjectGrabTab:CreateButton({
     Name = "Compile Group (Anchor)",
     Callback = function()
@@ -1708,6 +1681,14 @@ local Button = ObjectGrabTab:CreateButton({
 })
 
 local Button = ObjectGrabTab:CreateButton({
-    Name = "정리 컴파일 ",
+    Name = "정리 컴파일",
     Callback = cleanupCompiledGroups
+})
+
+
+local Button = FunTab:CreateButton({
+    Name = "Disconnect Clones",
+    Callback = function()
+        cleanupConnections(connections)
+    end
 })
