@@ -872,64 +872,34 @@ end
 
  
     
-local Window = Rayfield:CreateWindow({
-    Name = "FTAP(반물사) | (made by 알파카)",
-    LoadingTitle = "알파스크립트 로딩중",
-    LoadingSubtitle = "by Alpaca",
-    ConfigurationSaving = {
-        Enabled = true,
-        FolderName = "파카허브(1티어)",
-        FileName = "AIPA_FTAP_Config"
-    },
-    KeySystem = true,
-    KeySettings = {
-        Title = "파카허브 키시스템",
-        Subtitle = "인증 키를 입력하세요",
-        Note = "오너(알파카👑)에게서 키를 받을수있습니다.(800로벅)",
-        FileName   = "AIPA_Key", 
-        SaveKey = true, 
-        GrabKeyFromSite = false, 
-        Key = {"파카허브v30"} 
-    }
-})
-local homeTab = Window:CreateTab("Home", 10723407389)
 
-local GrabTab = Window:CreateTab("Combat", 10723404472)
 
-local PlayerTab = Window:CreateTab("Local Player", 10747373176)
-local ObjectGrabTab = Window:CreateTab("Object Grab", 10709782497) 
-local DefanseTab = Window:CreateTab("Anti Grab", 10734951847)
-local BlobmanTab = Window:CreateTab("Blob Man", 10709782230)
-local FunTab = Window:CreateTab("Fun / Troll", 10734964441)
-local ScriptTab = Window:CreateTab("Script", 10734943448)
-local AuraTab = Window:CreateTab("Auras", 10723396107)
-local ExplosionTab = Window:CreateTab("Explosions", 10709818996)
-local KeybindsTab = Window:CreateTab("Keybinds", 10723416765)
 
-local Paragraph = homeTab:CreateParagraph({Title = "UI / Rayfield", Content = "Rayfield library by sirius"})
+
+local Paragraph = homeTab:CreateParagraph({Title = "UI / Rayfield", Content = "Rayfield library by paca(레이필드 크랙 by paca&nope"})
 local Divider = homeTab:CreateDivider()
-local Paragraph = homeTab:CreateParagraph({Title = "Home!", Content = "Welcome to Venom X! "..Player.Name.." Thanks for useing script!"})
+local Paragraph = homeTab:CreateParagraph({Title = "홈!", Content = "파카허브에 오신걸환영합니다!"..Player.Name.."파카허브를 사용해주셔서 감사합니다!"})
 
-local Label = homeTab:CreateLabel("Chill Server / Discord", 10709797725, Color3.fromRGB(10, 10, 10), false) -- Title, Icon, Color, IgnoreTheme
+local Label = homeTab:CreateLabel("파카허브 링크 / 디스코드", 10709797725, Color3.fromRGB(10, 10, 10), false) -- Title, Icon, Color, IgnoreTheme
 
 local Button = homeTab:CreateButton({
-    Name = "Chill Server",
+    Name = "서버복사",
     Callback = function()
-        setclipboard("discord.gg/BKU2WH7evF")
+setclipboard("https://discord.gg/SXGXFTf7a")
     end,
  })
 
 local Paragraph = homeTab:CreateParagraph({Title = "Info Log", Content = "Script Update log and Discord Update log"})
 local Divider = homeTab:CreateDivider()
-local Paragraph = homeTab:CreateParagraph({Title = "[Script Update]", Content = "[2025/02/19] | Added Get Coin"})
-local Paragraph = homeTab:CreateParagraph({Title = "[Script Update]", Content = "[2025/02/20] | Added Key System"})
+local Paragraph = homeTab:CreateParagraph({Title = "[Script Update]", Content = "[2026/05/22] | 신규탭,기능 추가(+최적화 진행)"})
+local Paragraph = homeTab:CreateParagraph({Title = "[Script Update]", Content = "[2026/05/22] | 서버정리  추가"})
 
 _G.strength = 400
 
-local Paragraph = GrabTab:CreateParagraph({Title = "Combat Tab", Content = "Adjust the throwing force along the slider"})
+local Paragraph = GrabTab:CreateParagraph({Title = "Combat Tab", Content = "슬라이더를 따라 던지는 힘을 조절하세요."})
 
 local Slider = GrabTab:CreateSlider({
-    Name = "Strength Power",
+    Name = "던지는 힘",
     Range = {300, 10000},
     Increment = 1,
     Suffix = "",
@@ -941,7 +911,7 @@ local Slider = GrabTab:CreateSlider({
  })
 
  local Toggle = GrabTab:CreateToggle({
-    Name = "Strength",
+    Name = "힘",
     CurrentValue = false,
     Flag = "StrengthToggle",
     Callback = function(enabled)
@@ -971,10 +941,10 @@ local Slider = GrabTab:CreateSlider({
     end
 })
 
-local Paragraph = GrabTab:CreateParagraph({Title = "Grab stuff", Content = "These effects apply when you grab someone"})
+local Paragraph = GrabTab:CreateParagraph({Title = "그랩 스태프", Content = "이 효과는 누군가를 잡을 때 적용됩니다."})
 
 local Toggle = GrabTab:CreateToggle({
-    Name = "Poison Grab",
+    Name = "포이즌 그랩",
     CurrentValue = false,
     Flag = "", 
     Callback = function(enabled)
@@ -994,7 +964,7 @@ local Toggle = GrabTab:CreateToggle({
 })
 
 local Toggle = GrabTab:CreateToggle({
-    Name = "Radioactive Grab",
+    Name = "광선 그랩",
     CurrentValue = false,
     Flag = "RadioactiveGrab", 
     Callback = function(enabled)
@@ -1014,7 +984,7 @@ local Toggle = GrabTab:CreateToggle({
 })
 
 local Toggle = GrabTab:CreateToggle({
-    Name = "Fire Grab",
+    Name = "파이어 그랩",
     CurrentValue = false,
     Flag = "FireGrab", 
     Callback = function(enabled)
@@ -1031,7 +1001,7 @@ local Toggle = GrabTab:CreateToggle({
 })
 
 local Toggle = GrabTab:CreateToggle({
-    Name = "Noclip Grab",
+    Name = "노클립 그랩",
     CurrentValue = false,
     Flag = "NoclipGrab", 
     Callback = function(enabled)
@@ -1048,7 +1018,7 @@ local Toggle = GrabTab:CreateToggle({
 })
 
 local Toggle = GrabTab:CreateToggle({
-    Name = "Kick Grab",
+    Name = "킥그랩 V2",
     CurrentValue = false,
     Flag = "KickGrab", 
     Callback = function(enabled)
@@ -1075,7 +1045,7 @@ local Toggle = GrabTab:CreateToggle({
 })
 
 local Toggle = GrabTab:CreateToggle({
-    Name = "Kick Grab Anchor",
+    Name = "킥 그랩 앵커",
     CurrentValue = false,
     Flag = "AnchorKickGrab", 
     Callback = function(enabled)
@@ -1096,7 +1066,7 @@ local Toggle = GrabTab:CreateToggle({
 local Paragraph = GrabTab:CreateParagraph({Title = "All-Features", Content = "Make sure there are no campfires spawned by you BEFORE using this"})
 
 local Toggle = GrabTab:CreateToggle({
-    Name = "Fire All",
+    Name = "파이어올",
     CurrentValue = false,
     Flag = "FireAll", 
     Callback = function(enabled)
@@ -1115,7 +1085,7 @@ local Toggle = GrabTab:CreateToggle({
 local Paragraph = PlayerTab:CreateParagraph({Title = "Local Player Tab", Content = "Player Setting"})
 
 local Toggle = PlayerTab:CreateToggle({
-    Name = "Crouch Speed",
+    Name = "앉기 이동속도",
     CurrentValue = false,
     Flag = "CrouchSpeed", 
     Callback = function(enabled)
@@ -1143,7 +1113,7 @@ local Toggle = PlayerTab:CreateToggle({
 })
 
 local Slider = PlayerTab:CreateSlider({
-    Name = "Set Crouch Speed",
+    Name = "앉기 이동속도 값",
     Range = {6, 1000},
     Increment = 1,
     Suffix = "SetCrouchSpeed",
@@ -1155,7 +1125,7 @@ local Slider = PlayerTab:CreateSlider({
 })
 
 local Toggle = PlayerTab:CreateToggle({
-    Name = "Crouch Jump Power",
+    Name = "앉기 점프파워",
     CurrentValue = false,
     Flag = "CrouchJumpPower", 
     Callback = function(enabled)
@@ -1183,7 +1153,7 @@ local Toggle = PlayerTab:CreateToggle({
 })
 
 local Slider = PlayerTab:CreateSlider({
-    Name = "Set Crouch Jump Power",
+    Name = "앉기 점프파워 값",
     Range = {6, 1000},
     Increment = 1,
     Suffix = "SetCrouchJumpPower",
@@ -1194,10 +1164,10 @@ local Slider = PlayerTab:CreateSlider({
     end
 })
 
-local Paragraph = ObjectGrabTab:CreateParagraph({Title = "ObjectGrab Tab", Content = "Function when grabbing an object"})
+local Paragraph = ObjectGrabTab:CreateParagraph({Title = "오브젝트 그랩", Content = "물건을 잡을 때의 기능"})
 
 local Toggle = ObjectGrabTab:CreateToggle({
-    Name = "Anchor Grab",
+    Name = "앵커 그랩",
     CurrentValue = false,
     Flag = "AnchorGrab", 
     Callback = function(enabled)
@@ -1218,12 +1188,12 @@ local Toggle = ObjectGrabTab:CreateToggle({
 local Paragraph = ObjectGrabTab:CreateParagraph({Title = "Anchor Grab Info", Content = "If someone grabs your anchored parts, they will fall and you will need to position them again!"})
 
 local Button = ObjectGrabTab:CreateButton({
-    Name = "Unanchor parts",
+    Name = "앵커 해제",
     Callback = cleanupAnchoredParts
 })
 
 local Button = ObjectGrabTab:CreateButton({
-    Name = "Disassemble Parts",
+    Name = "부품 분해",
     Callback = function()
         cleanupCompiledGroups()
         cleanupAnchoredParts()
@@ -1236,7 +1206,7 @@ local Button = ObjectGrabTab:CreateButton({
 })
 
 local Toggle = ObjectGrabTab:CreateToggle({
-    Name = "Auto Recover Dropped Parts",
+    Name = "분실된 부품 자동 회수",
     CurrentValue = false,
     Flag = "AutoRecoverDroppedParts", 
     Callback = function(enabled)
@@ -1255,14 +1225,13 @@ local Toggle = ObjectGrabTab:CreateToggle({
 })
 
 local Button = ObjectGrabTab:CreateButton({
-    Name = "Unanchor Header Part",
+    Name = "앵커 헤더 파트",
     Callback = unanchorPrimaryPart
 })
 
-local Paragraph = DefanseTab:CreateParagraph({Title = "Defense Tab", Content = "Anti System"})
 
-local Toggle = DefanseTab:CreateToggle({
-    Name = "Anti Grab",
+local Toggle = antiTab:CreateToggle({
+    Name = "안티그랩 V2",
     CurrentValue = false,
     Flag = "AutoStruggle", 
     Callback = function(enabled)
@@ -1300,8 +1269,8 @@ local Toggle = DefanseTab:CreateToggle({
     end
 })
 
-local Toggle = DefanseTab:CreateToggle({
-    Name = "Anti Kick Grab",
+local Toggle = antiTab:CreateToggle({
+    Name = "안티 킥 그랩",
     CurrentValue = false,
     Flag = "AntiKickGrab", 
     Callback = function(enabled)
@@ -1330,8 +1299,8 @@ local Toggle = DefanseTab:CreateToggle({
     end
 })
 
-local Toggle = DefanseTab:CreateToggle({
-    Name = "Anti Explosion",
+local Toggle = antiTab:CreateToggle({
+    Name = "폭탄 무적 V2",
     CurrentValue = false,
     Flag = "AntiExplosion", 
     Callback = function(enabled)
@@ -1360,10 +1329,10 @@ local Toggle = DefanseTab:CreateToggle({
     end
 })
 
-local Section = DefanseTab:CreateSection("Self Defense")
+local Section = DefanseTab:CreateSection("셀프 안티")
 
 local Toggle = DefanseTab:CreateToggle({
-    Name = "Self Defense / Air Suspend",
+    Name = "셀프안티 / 에어 서스펜드",
     CurrentValue = false,
     Flag = "SelfDefenseAirSuspend", 
     Callback = function(enabled)
@@ -1405,7 +1374,7 @@ local Toggle = DefanseTab:CreateToggle({
 })
 
 local Toggle = DefanseTab:CreateToggle({
-    Name = "Self Defense / Kick Silent",
+    Name = "셀프디펜스 / 사일런스킥(씨발 토크라 좆같아서 추가했다 이기)",
     CurrentValue = false,
     Flag = "", 
     Callback = function(enabled)
@@ -1413,11 +1382,11 @@ local Toggle = DefanseTab:CreateToggle({
     end
 })
 
-local Paragraph = BlobmanTab:CreateParagraph({Title = "Blobman Tab", Content = "Destroy server More added? Send DM For My acc"})
+
 
 local blobman1
-blobman1 = BlobmanTab:CreateToggle({
-    Name = "Destroy server",
+blobman1 = LoopTab:CreateToggle({
+    Name = "데스토리서버(서버 정리 밑 모두추방)",
     CurrentValue = false,
     Flag = "", 
     Callback = function(enabled)
@@ -1479,8 +1448,8 @@ blobman1 = BlobmanTab:CreateToggle({
     end
 })
 
-local Slider = BlobmanTab:CreateSlider({
-    Name = "Destroy server Speed",
+local Slider = LoopTab:CreateSlider({
+    Name = "데스토리 서버 스피드",
     Range = {0.05, 1},
     Increment = 0.01,
     Suffix = "",
@@ -1491,12 +1460,11 @@ local Slider = BlobmanTab:CreateSlider({
     end,
  })
 
-local Paragraph = FunTab:CreateParagraph({Title = "Fun Tab", Content = "Troll and Fun!"})
 
-local Section = FunTab:CreateSection("Troll")
+local Section = FunTab:CreateSection("트롤")
 
 local Input = FunTab:CreateInput({
-    Name = "Number of coins",
+    Name = "코인 숫자",
     CurrentValue = "",
     PlaceholderText = "Number",
     RemoveTextAfterFocusLost = false,
@@ -1507,7 +1475,7 @@ local Input = FunTab:CreateInput({
 })
 
 local Button = FunTab:CreateButton({
-    Name = "Get Coin",
+    Name = "돈얻기(가짜)",
     Callback = function()
 
         local coinAmount = tonumber(skolko) or 0 
@@ -1519,7 +1487,7 @@ local Button = FunTab:CreateButton({
 local Section = FunTab:CreateSection("Fun")
 
 local Slider = FunTab:CreateSlider({
-    Name = "Offset",
+    Name = "오프셋",
     Range = {1, 10},
     Increment = 5,
     Suffix = "",
@@ -1531,7 +1499,7 @@ local Slider = FunTab:CreateSlider({
 })
 
 local Input = FunTab:CreateInput({
-    Name = "Circle Radius",
+    Name = "원 반경",
     CurrentValue = "",
     PlaceholderText = "Radius for Surround Mode (Adjust based on clones)",
     RemoveTextAfterFocusLost = false,
@@ -1542,7 +1510,7 @@ local Input = FunTab:CreateInput({
  })
 
  local Button = FunTab:CreateButton({
-    Name = "Decoy Follow",
+    Name = "미끼 팔로우",
     Callback = function()
         local decoys = {}
         for _, descendant in pairs(workspace:GetDescendants()) do
@@ -1624,7 +1592,7 @@ local Input = FunTab:CreateInput({
 })
 
  local Button = FunTab:CreateButton({
-    Name = "Toggle Mode",
+    Name = "토클모드",
 
     Callback = function()
         followMode = not followMode
@@ -1638,7 +1606,7 @@ local Input = FunTab:CreateInput({
 local Paragraph = ExplosionTab:CreateParagraph({Title = "Explosion / Missile", Content = "Missile & Ragdoll Functions"})
 
 local Toggle = ExplosionTab:CreateToggle({
-    Name = "Auto Reload Missile",
+    Name = "오토 릴로드 미사일",
     CurrentValue = false,
     Callback = function(enabled)
         reloadMissile(enabled)
@@ -1646,7 +1614,7 @@ local Toggle = ExplosionTab:CreateToggle({
 })
 
 local Slider = ExplosionTab:CreateSlider({
-    Name = "Max Missiles",
+    Name = "미사일 최대수치",
     Range = {1, 20},
     Increment = 1,
     CurrentValue = 9,
@@ -1656,7 +1624,7 @@ local Slider = ExplosionTab:CreateSlider({
 })
 
 local Toggle = ExplosionTab:CreateToggle({
-    Name = "Ragdoll All",
+    Name = "래그돌 올",
     CurrentValue = false,
     Callback = function(enabled)
         if enabled then
@@ -1672,9 +1640,9 @@ local Toggle = ExplosionTab:CreateToggle({
     end
 })
 
--- Object Grab Tab
+
 local Button = ObjectGrabTab:CreateButton({
-    Name = "Compile Group (Anchor)",
+    Name = "컴파일 그룹 (앵커)",
     Callback = function()
         compileGroup()
     end
@@ -1687,7 +1655,7 @@ local Button = ObjectGrabTab:CreateButton({
 
 
 local Button = FunTab:CreateButton({
-    Name = "Disconnect Clones",
+    Name = "클론 연결 해제",
     Callback = function()
         cleanupConnections(connections)
     end
