@@ -855,7 +855,20 @@ local function blobGrabPlayer(player, blobman)
         end
     end
 end
+local function getVersion()
+    local url = "https://raw.githubusercontent.com/Undebolted/FTAP/main/VERSION.json"
+    local success, response = pcall(function()
+        return game:HttpGet(url)
+    end)
 
+    if success then
+        local data = HttpService:JSONDecode(response)
+        return data.version
+    else
+        warn("Failed to get version: " .. tostring(response))
+        return "Unknown"
+    end
+end
 local Window = Rayfield:CreateWindow({
     Name = "Venom X",
     Icon = 0, 
