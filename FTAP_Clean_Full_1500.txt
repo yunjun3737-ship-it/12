@@ -1631,10 +1631,7 @@ local Input = FunTab:CreateInput({
     end,
  })
 
- FunTab:AddToggle({
-    Name = "Disconnect Clones",
-    Callback = cleanupConnections(connections)
-})
+
 
 local Paragraph = ExplosionTab:CreateParagraph({Title = "Explosion / Missile", Content = "Missile & Ragdoll Functions"})
 
